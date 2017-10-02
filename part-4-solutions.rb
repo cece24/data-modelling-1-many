@@ -102,6 +102,17 @@ SELECT name FROM countries WHERE id = 1;
 # --------
 #  Canada
 
+SOLUTION 2 using INNER JOIN
+---------------------------
+SELECT persons.name, countries.name
+FROM((((persons
+INNER JOIN residences ON persons.residence_id = residences.id)
+INNER JOIN cities ON residences.city_id = cities.id)
+INNER JOIN provinces ON cities.province_id = provinces.id)
+INNER JOIN countries ON provinces.country_id = countries.id)
+WHERE persons.name = 'Destini Davis';
+
+
 
 10. How many articles has Aditya Mukerjee written?
 SELECT id FROM authors WHERE name = 'Aditya Mukerjee';
